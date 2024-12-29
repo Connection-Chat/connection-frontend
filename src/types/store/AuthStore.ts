@@ -1,4 +1,4 @@
-import { User, SignUpUser, LoginUser } from "@/types";
+import type { User, LoginUser, AuthUser, UpdateUser } from "@/types";
 
 export interface AuthState {
   authUser: User | null;
@@ -7,7 +7,8 @@ export interface AuthState {
   isUpdatingProfile: boolean;
   isCheckingAuth: boolean;
   checkAuth: () => Promise<void>;
-  signup: (user: SignUpUser) => Promise<void>;
+  signup: (user: AuthUser) => Promise<void>;
   logout: () => Promise<void>;
   login: (user: LoginUser) => Promise<void>;
+  updateProfile: (data: UpdateUser) => Promise<void>;
 }
