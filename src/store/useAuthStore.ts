@@ -1,5 +1,5 @@
 import { axiosInstance } from "@/lib/axios";
-import { AuthState, ErrorResponse, SignUpUser } from "@/types";
+import { AuthState, ErrorResponse, LoginUser, SignUpUser } from "@/types";
 import { AxiosError } from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
@@ -45,6 +45,46 @@ export const useAuthStore = create<AuthState>((set) => ({
       }
     } finally {
       set({ isSigningUp: false });
+    }
+  },
+
+  logout: async () => {
+    try {
+      await axiosInstance.post("/auth/logout");
+
+      set({ authUser: null });
+
+      toast.success("Logged out successfully");
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>;
+
+      if (axiosError.response) {
+        toast.error(axiosError.response.data.message);
+      } else {
+        toast.error("Something went wrong!");
+      }
+    }
+  },
+
+  login: async (data: LoginUser) => {
+    set({ isLoggingIn: true });
+
+    try {
+      const response = await axiosInstance.post("/auth/login", data);
+
+      set({ authUser: response.data });
+
+      toast.success("Logged in successfully");
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>;
+
+      if (axiosError.response) {
+        toast.error(axiosError.response.data.message);
+      } else {
+        toast.error("Something went wrong!");
+      }
+    } finally {
+      set({ isLoggingIn: false });
     }
   },
 }));
