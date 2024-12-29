@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Loader } from "lucide-react";
+import { Toaster } from "react-hot-toast";
 
 import { Navbar } from "@/components";
 import {
@@ -10,8 +11,8 @@ import {
   SettingsPage,
   SignUpPage,
 } from "@/pages";
-import { useAuthStore } from "./store/useAuthStore";
-import { Toaster } from "react-hot-toast";
+import { useAuthStore } from "@/store/useAuthStore";
+import { ROUTES } from "@/enums";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -19,8 +20,6 @@ function App() {
   useEffect(() => {
     checkAuth();
   }, []);
-
-  console.log("authUser: ", authUser);
 
   if (isCheckingAuth && !authUser) {
     return (
@@ -36,21 +35,21 @@ function App() {
 
       <Routes>
         <Route
-          path="/"
-          element={authUser ? <HomePage /> : <Navigate to="/login" />}
+          path={ROUTES.HOME}
+          element={authUser ? <HomePage /> : <Navigate to={ROUTES.LOGIN} />}
         />
         <Route
-          path="/signup"
-          element={!authUser ? <SignUpPage /> : <Navigate to="/" />}
+          path={ROUTES.SIGNUP}
+          element={!authUser ? <SignUpPage /> : <Navigate to={ROUTES.HOME} />}
         />
         <Route
-          path="/login"
-          element={!authUser ? <LoginPage /> : <Navigate to="/" />}
+          path={ROUTES.LOGIN}
+          element={!authUser ? <LoginPage /> : <Navigate to={ROUTES.HOME} />}
         />
-        <Route path="/settings" element={<SettingsPage />} />
+        <Route path={ROUTES.SETTINGS} element={<SettingsPage />} />
         <Route
-          path="/profile"
-          element={authUser ? <ProfilePage /> : <Navigate to="/login" />}
+          path={ROUTES.PROFILE}
+          element={authUser ? <ProfilePage /> : <Navigate to={ROUTES.LOGIN} />}
         />
       </Routes>
 
