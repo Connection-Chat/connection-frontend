@@ -6,6 +6,8 @@ export interface AuthState {
   isLoggingIn: boolean;
   isUpdatingProfile: boolean;
   isCheckingAuth: boolean;
+  onlineUsers: string[];
+
   checkAuth: () => Promise<void>;
   signup: (user: AuthUser) => Promise<void>;
   logout: () => Promise<void>;

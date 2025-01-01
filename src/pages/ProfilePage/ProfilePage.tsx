@@ -20,13 +20,11 @@ export const ProfilePage = () => {
     reader.onload = async () => {
       const base64Image = reader.result as string;
 
-      setSelectedImage(base64Image);
-
       await updateProfile({ profilePic: base64Image });
+      
+      setSelectedImage(base64Image);
     };
   };
-
-  console.log(authUser);
 
   return (
     <div className="pt-20">
