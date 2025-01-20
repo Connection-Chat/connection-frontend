@@ -12,8 +12,8 @@ import {
   SignUpPage,
 } from "@/pages";
 import { useAuthStore } from "@/store/useAuthStore";
-import { ROUTES } from "@/enums";
 import { useThemeStore } from "./store/useThemeStore";
+import { ROUTES } from "@/enums";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
