@@ -12,7 +12,7 @@ import {
   SignUpPage,
 } from "@/pages";
 import { useAuthStore } from "@/store/useAuthStore";
-import { useThemeStore } from "./store/useThemeStore";
+import { useThemeStore } from "@/store/useThemeStore";
 import { ROUTES } from "@/enums";
 
 function App() {
