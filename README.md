@@ -1,12 +1,12 @@
 # Connection - mini chat application
 
-*🌟 Tech stack: MERN + Socket.io + TailwindCSS + Daisy UI
-*🎃 Authentication && Authorization with JWT
-*👾 Real-time messaging with Socket.io
-*🚀 Online user status
-*👌 Global state management with Zustand
-*⭐ Deployed on Render resource!
-*⏳ And much more!
+* 🌟 Tech stack: MERN + Socket.io + TailwindCSS + Daisy UI
+* 🎃 Authentication && Authorization with JWT
+* 👾 Real-time messaging with Socket.io
+* 🚀 Online user status
+* 👌 Global state management with Zustand
+* ⭐ Deployed on Render resource!
+* ⏳ And much more!
 
 :exclamation: My advice, first of all run the backend server (https://github.com/Connection-Chat/connection-backend) and then go to the frontend :exclamation: 
 
