@@ -5,7 +5,7 @@
 * 👾 Real-time messaging with Socket.io
 * 🚀 Online user status
 * 👌 Global state management with Zustand
-* ⭐ Deployed on Render resource!
+* ⭐ Deployed on Render resource - https://connection-frontend.onrender.com 
 * ⏳ And much more!
 
 :exclamation: My advice, first of all run the backend server (https://github.com/Connection-Chat/connection-backend) and then go to the frontend :exclamation: 
