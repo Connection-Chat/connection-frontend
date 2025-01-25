@@ -12,6 +12,12 @@
 
 :exclamation: My advice, first of all run the backend server (https://github.com/Connection-Chat/connection-backend) and then go to the frontend :exclamation: 
 
+## Create .env file in the root folder, paste this code and fill information:
+```env
+VITE_BACKEND_URL=http://localhost:5001
+VITE_API_BASE_URL=http://localhost:5001/api
+```
+
 ## How to run the application:
 
 - Run this command `git clone https://github.com/Connection-Chat/connection-frontend.git`;
